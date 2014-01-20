@@ -16,7 +16,7 @@ using namespace std;
 extern bool loadArguments(int argc, char *argv[], char **path);
 
 int maxRand, minRand, maxRandElemenst, minRandElements;
-double prog;
+double density;
 
 
 
@@ -27,6 +27,7 @@ int main(int argc, char *argv[]) {
 
 	if( loadArguments(argc, argv, &path) ) {
 
+		srand(time(NULL));
 		generate(&path);
 		return 0;
 	}
@@ -47,7 +48,7 @@ bool loadArguments(int argc, char *argv[], char **path) {
 		cout << "pirwszy argument 	- minimalna dlugosc lancucha" << std::endl;
 		cout << "drugi argument 	- maksymalna dlugosc lancucha" << std::endl;
 		cout << "trzeci argument 	- minimalna ilosc podslow" << std::endl;
-		cout << "czwarty argument 	- minimalna ilosc podslow" << std::endl;
+		cout << "czwarty argument 	- maksymalna ilosc podslow" << std::endl;
 		cout << "piaty argument 	- zageszczenie podslow" << std::endl;
 		cout << "szosty argument  	- nazwa pliku zawierającego lancuch, podlancuchy" << std::endl;
 		return false;
@@ -75,7 +76,7 @@ bool loadArguments(int argc, char *argv[], char **path) {
 			minRand = 50;
 			maxRand = 100;
 
-			prog = 1000.0;
+			density = 1000.0;
 
 			*path = "plikt_gen.txt";
 
@@ -88,7 +89,7 @@ bool loadArguments(int argc, char *argv[], char **path) {
 			minRand = 50;
 			maxRand = 100;
 
-			prog = 1000.0;
+			density = 1000.0;
 
 			*path = "plikt_gen.txt";
 
@@ -106,7 +107,7 @@ bool loadArguments(int argc, char *argv[], char **path) {
 			minRand = atoi(argv[3]);
 			maxRand = minRand + 50;
 
-			prog = 1000.0;
+			density = 1000.0;
 
 			*path = "plikt_gen.txt";
 
@@ -124,7 +125,7 @@ bool loadArguments(int argc, char *argv[], char **path) {
 			minRand = atoi(argv[3]);
 			maxRand = atoi(argv[4]);
 
-			prog = 1000.0;
+			density = 1000.0;
 
 			*path = "plikt_gen.txt";
 
@@ -143,7 +144,7 @@ bool loadArguments(int argc, char *argv[], char **path) {
 			maxRand = atoi(argv[3]);
 			minRand = atoi(argv[4]);
 
-			prog = atoi(argv[5]);
+			density = atoi(argv[5]);
 
 			*path = "plikt_gen.txt";
 
@@ -162,7 +163,7 @@ bool loadArguments(int argc, char *argv[], char **path) {
 			maxRand = atoi(argv[3]);
 			minRand = atoi(argv[4]);
 
-			prog = atoi(argv[5]);
+			density = atoi(argv[5]);
 
 			*path = argv[6];
 

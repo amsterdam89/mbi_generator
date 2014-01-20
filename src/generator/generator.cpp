@@ -17,7 +17,7 @@ void generate(char **path) {
 
 
 	int numberOfElements = rand() % maxRandElemenst + minRandElements;
-	int liczbaPodlancuchow = rand() % maxRand + minRand;
+	int numberOfSubelements = rand() % maxRand + minRand;
 
 	tableOfElements = new int[numberOfElements];
 	myfile.open(*path);
@@ -31,11 +31,11 @@ void generate(char **path) {
 
 
 
-	  myfile << std::endl;
+	myfile << std::endl;
 
 
 
-	for(int i = 0, _randCentralElement; i < liczbaPodlancuchow; i++) {
+	for(int i = 0, _randCentralElement; i < numberOfSubelements; i++) {
 		_randCentralElement = rand() % numberOfElements;
 		_randCalyPodlancuch(_randCentralElement, numberOfElements, &tableOfElements, &myfile);
 
@@ -69,35 +69,38 @@ void _randCalyPodlancuch(int _randCentralElement, int numberOfElements, int **ta
 
 	int firstElement = _randCentralElement, lastElement = _randCentralElement;
 	double _rand;
-	std::list<int> podlancuch;
-	podlancuch.push_front((*tableOfElements)[_randCentralElement]);
+	std::list<int> subElement;
+	subElement.push_front((*tableOfElements)[_randCentralElement]);
 
 	bool flag = true;
 	int goLeftOrRight;
 	int x = 1;
 
+	bool ( *cointinue ) ( int a, double b) = cointinueCut ;
+
+
 	do {
 
 		_rand = (double) rand() / RAND_MAX;
 
-		if( cointinueCutLancuch(x, _rand) ) {
+		if( cointinue(x, _rand) ) {
 
 			if(firstElement > 0 && lastElement < (numberOfElements - 1) ) {
 
 				goLeftOrRight = rand() % 2;
 
 				if(!goLeftOrRight) //idziemy w lewo
-					podlancuch.push_front((*tableOfElements)[--firstElement]);
+					subElement.push_front((*tableOfElements)[--firstElement]);
 
 				else
-					podlancuch.push_back((*tableOfElements)[++lastElement]);
+					subElement.push_back((*tableOfElements)[++lastElement]);
 			}
 			else {
 				if(firstElement > 0) // idzemy w lew
-					podlancuch.push_front((*tableOfElements)[--firstElement]);
+					subElement.push_front((*tableOfElements)[--firstElement]);
 
 				else if(lastElement < (numberOfElements - 1) )
-					podlancuch.push_back((*tableOfElements)[++lastElement]);
+					subElement.push_back((*tableOfElements)[++lastElement]);
 
 				else
 					flag = false;
@@ -116,7 +119,7 @@ void _randCalyPodlancuch(int _randCentralElement, int numberOfElements, int **ta
 
 
 
-	  for (std::list<int>::iterator it = podlancuch.begin(); it != podlancuch.end(); it++)
+	  for (std::list<int>::iterator it = subElement.begin(); it != subElement.end(); it++)
 		  (*myfile) << getElement(*it);
 
 
@@ -125,7 +128,7 @@ void _randCalyPodlancuch(int _randCentralElement, int numberOfElements, int **ta
 
 }
 
-bool cointinueCutLancuch(int x, double _rand) {
+bool cointinueCut(int x, double _rand) {
 	double a = 100.0;
 	double f = -x/a + 1/a + 1.0;
 

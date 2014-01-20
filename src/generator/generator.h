@@ -19,7 +19,7 @@
 using namespace std;
 
 extern int maxRand, minRand, maxRandElemenst, minRandElements;
-extern double prog;
+extern double density;
 
 
 
@@ -28,9 +28,9 @@ void generate(char **path);
 
 char getElement(int rand);
 
-bool cointinueCutLancuch(int x, double _rand);
+bool cointinueCut(int x, double _rand);
 void _randCalyPodlancuch(int _randCentralElement, int numberOfElements, int **tableOfElements, ofstream *myfile);
 
-bool cointinueCutLancuch(int x, double _rand);
+bool cointinueCut(int x, double _rand);
 
 #endif /* GENERATOR_H_ */
