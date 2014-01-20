@@ -76,7 +76,7 @@ void _randCalyPodlancuch(int _randCentralElement, int numberOfElements, int **ta
 	int goLeftOrRight;
 	int x = 1;
 
-	bool ( *cointinue ) ( int a, double b) = cointinueCut ;
+	bool ( *cointinue ) ( int a, double b) = cointinueCutLinear; //cointinueCut_x2 ;
 
 
 	do {
@@ -126,10 +126,14 @@ void _randCalyPodlancuch(int _randCentralElement, int numberOfElements, int **ta
 	  (*myfile) << std::endl;
 
 
+
 }
 
-bool cointinueCut(int x, double _rand) {
-	double a = 100.0;
+bool cointinueCutLinear(int x, double _rand) {
+
+	// f liniowa decydujaca o wycinaniu lancucha
+
+	double a = density;
 	double f = -x/a + 1/a + 1.0;
 
 	if(f >= _rand)
@@ -138,3 +142,23 @@ bool cointinueCut(int x, double _rand) {
 	return false;
 
 }
+
+bool cointinueCut_x2(int x, double _rand) {
+
+	// f kwadratowa decydujaca o wycinaniu lancucha
+
+	double minus = -1.0;
+	double a = density;
+	a = (1.0 / a) * minus;
+	double b = - 2 * a;
+	double c = (b * b) / (4 * a) + 1;
+
+	double f = a*x*x + b*x + c;
+
+	if(f >= _rand)
+		return true;
+
+	return false;
+
+}
+

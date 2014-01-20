@@ -41,48 +41,61 @@ int main(int argc, char *argv[]) {
 bool loadArguments(int argc, char *argv[], char **path) {
 
 
-	if(argc <= 1) {
-		cout << "wywolanie generatora z niepoprawnymi flagami" << std::endl;
-		cout << "przyklad wywowlania" << std::endl;
-		cout << "$ generator" << std::endl;
-		cout << "pirwszy argument 	- minimalna dlugosc lancucha" << std::endl;
-		cout << "drugi argument 	- maksymalna dlugosc lancucha" << std::endl;
-		cout << "trzeci argument 	- minimalna ilosc podslow" << std::endl;
-		cout << "czwarty argument 	- maksymalna ilosc podslow" << std::endl;
-		cout << "piaty argument 	- zageszczenie podslow" << std::endl;
-		cout << "szosty argument  	- nazwa pliku zawierającego lancuch, podlancuchy" << std::endl;
-		return false;
-	}
-	else if(argc == 2) {
-
-		minRandElements = 10;
-		maxRandElemenst = minRandElements + 100;
-
-		minRand = 20;
-		maxRand = 100;
-
-		*path = "plikt_gen.txt";
-
-		return true;
-	}
-	else if(argc >=3) {
 
 
-		if(argc == 3) {
+	if(argc == 1 ) {
 
-			minRandElements = atoi(argv[1]);
+			minRandElements = 10;
 			maxRandElemenst = minRandElements + 100;
 
-			minRand = 50;
+			minRand = 20;
 			maxRand = 100;
-
-			density = 1000.0;
 
 			*path = "plikt_gen.txt";
 
 			return true;
+
+	}
+	else if(argc >=2) {
+
+
+		if(argc == 2) {
+
+			std::string help = argv[1];
+
+			if(help == "-h" || help == "--help") {
+
+				cout << "wywolanie generatora lancucha DNA" << std::endl;
+				cout << "przyklad wywowlania" << std::endl;
+				cout << "$ generator" << std::endl;
+				cout << "pirwszy argument 	- minimalna dlugosc lancucha" << std::endl;
+				cout << "drugi argument 	- maksymalna dlugosc lancucha" << std::endl;
+				cout << "trzeci argument 	- minimalna ilosc podslow" << std::endl;
+				cout << "czwarty argument 	- maksymalna ilosc podslow" << std::endl;
+				cout << "piaty argument 	- zageszczenie podslow" << std::endl;
+				cout << "szosty argument  	- nazwa pliku zawierającego lancuch, podlancuchy" << std::endl;
+
+				return false;
+			}
+			else {
+
+				minRandElements = atoi(argv[1]);
+				maxRandElemenst = minRandElements + 100;
+
+				minRand = 50;
+				maxRand = 100;
+
+				density = 1000.0;
+
+				*path = "plikt_gen.txt";
+
+				return true;
+
+			}
+
+
 		}
-		else if(argc == 4) {
+		else if(argc == 3) {
 			minRandElements = atoi(argv[1]);
 			maxRandElemenst = atoi(argv[2]);
 
@@ -100,7 +113,7 @@ bool loadArguments(int argc, char *argv[], char **path) {
 			return false;
 
 		}
-		else if(argc == 5) {
+		else if(argc == 4) {
 			minRandElements = atoi(argv[1]);
 			maxRandElemenst = atoi(argv[2]);
 
@@ -118,7 +131,7 @@ bool loadArguments(int argc, char *argv[], char **path) {
 			return false;
 
 		}
-		else if(argc == 6) {
+		else if(argc == 5) {
 			minRandElements = atoi(argv[1]);
 			maxRandElemenst = atoi(argv[2]);
 
@@ -137,7 +150,7 @@ bool loadArguments(int argc, char *argv[], char **path) {
 
 		}
 
-		else if(argc == 7) {
+		else if(argc == 6) {
 			minRandElements = atoi(argv[1]);
 			maxRandElemenst = atoi(argv[2]);
 
@@ -156,7 +169,7 @@ bool loadArguments(int argc, char *argv[], char **path) {
 
 		}
 
-		else if(argc == 8) {
+		else if(argc == 7) {
 			minRandElements = atoi(argv[1]);
 			maxRandElemenst = atoi(argv[2]);
 

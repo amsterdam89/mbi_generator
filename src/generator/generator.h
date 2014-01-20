@@ -31,6 +31,8 @@ char getElement(int rand);
 bool cointinueCut(int x, double _rand);
 void _randCalyPodlancuch(int _randCentralElement, int numberOfElements, int **tableOfElements, ofstream *myfile);
 
-bool cointinueCut(int x, double _rand);
+bool cointinueCutLinear(int x, double _rand);
+
+bool cointinueCut_x2(int x, double _rand);
 
 #endif /* GENERATOR_H_ */
