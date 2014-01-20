@@ -1,0 +1,3 @@
+mbi_generator.d
+mbi_generator.o
+subdir.mk
