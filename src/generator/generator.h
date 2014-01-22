@@ -9,6 +9,7 @@
 #define GENERATOR_H_
 
 #include <iostream>
+#include <string>
 
 #include <iostream>
 #include <fstream>
@@ -24,7 +25,7 @@ extern double density;
 
 
 
-void generate(char **path);
+void generate(char **path, char **pathS);
 
 char getElement(int rand);
 

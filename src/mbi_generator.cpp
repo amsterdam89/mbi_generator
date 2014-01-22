@@ -3,17 +3,18 @@
 // Author      : lmetrak
 // Version     :
 // Copyright   : Your copyright notice
-// Description : Hello World in C++, Ansi-style
+// Description : main
 //============================================================================
 
 #include <iostream>
+#include <string>
 #include <stdlib.h>
 #include "generator/generator.h"
 
 
 using namespace std;
 
-extern bool loadArguments(int argc, char *argv[], char **path);
+extern bool loadArguments(int argc, char *argv[], char **pathElement, char ** pathSubelements);
 
 int maxRand, minRand, maxRandElemenst, minRandElements;
 double density;
@@ -24,11 +25,12 @@ int main(int argc, char *argv[]) {
 
 
 	char *path = NULL;
+	char *pathS = NULL;
 
-	if( loadArguments(argc, argv, &path) ) {
+	if( loadArguments(argc, argv, &path, &pathS) ) {
 
 		srand(time(NULL));
-		generate(&path);
+		generate(&path, &pathS);
 		return 0;
 	}
 
@@ -38,7 +40,7 @@ int main(int argc, char *argv[]) {
 }
 
 
-bool loadArguments(int argc, char *argv[], char **path) {
+bool loadArguments(int argc, char *argv[], char **pathElement, char **pathSubelements) {
 
 
 
@@ -51,7 +53,8 @@ bool loadArguments(int argc, char *argv[], char **path) {
 			minRand = 20;
 			maxRand = 100;
 
-			*path = "plikt_gen.txt";
+			*pathElement = "plik_lancuch.txt";
+			*pathSubelements = "plik_sublancuch";
 
 			return true;
 
@@ -73,7 +76,8 @@ bool loadArguments(int argc, char *argv[], char **path) {
 				cout << "trzeci argument 	- minimalna ilosc podslow" << std::endl;
 				cout << "czwarty argument 	- maksymalna ilosc podslow" << std::endl;
 				cout << "piaty argument 	- zageszczenie podslow" << std::endl;
-				cout << "szosty argument  	- nazwa pliku zawierającego lancuch, podlancuchy" << std::endl;
+				cout << "szosty argument  	- nazwa pliku zawierającego lancuch" << std::endl;
+				cout << "siodmy argument  	- nazwa pliku zawierającego podlancuchy" << std::endl;
 
 				return false;
 			}
@@ -87,7 +91,8 @@ bool loadArguments(int argc, char *argv[], char **path) {
 
 				density = 1000.0;
 
-				*path = "plikt_gen.txt";
+				*pathElement = "plikt_gen.txt";
+				*pathSubelements = "plik_sublancuch";
 
 				return true;
 
@@ -104,7 +109,8 @@ bool loadArguments(int argc, char *argv[], char **path) {
 
 			density = 1000.0;
 
-			*path = "plikt_gen.txt";
+			*pathElement = "plikt_gen.txt";
+			*pathSubelements = "plik_sublancuch";
 
 			if(minRandElements <= maxRandElemenst)
 				return true;
@@ -122,7 +128,8 @@ bool loadArguments(int argc, char *argv[], char **path) {
 
 			density = 1000.0;
 
-			*path = "plikt_gen.txt";
+			*pathElement = "plikt_gen.txt";
+			*pathSubelements = "plik_sublancuch";
 
 			if(minRandElements <= maxRandElemenst)
 				return true;
@@ -140,7 +147,8 @@ bool loadArguments(int argc, char *argv[], char **path) {
 
 			density = 1000.0;
 
-			*path = "plikt_gen.txt";
+			*pathElement = "plikt_gen.txt";
+			*pathSubelements = "plik_sublancuch";
 
 			if(minRandElements <= maxRandElemenst && minRand <= maxRand )
 				return true;
@@ -159,7 +167,8 @@ bool loadArguments(int argc, char *argv[], char **path) {
 
 			density = atoi(argv[5]);
 
-			*path = "plikt_gen.txt";
+			*pathElement = "plikt_gen.txt";
+			*pathSubelements = "plik_sublancuch";
 
 			if(minRandElements <= maxRandElemenst && minRand <= maxRand )
 				return true;
@@ -178,7 +187,27 @@ bool loadArguments(int argc, char *argv[], char **path) {
 
 			density = atoi(argv[5]);
 
-			*path = argv[6];
+			*pathElement = argv[6];
+			*pathSubelements = "plik_sublancuch";
+
+			if(minRandElements <= maxRandElemenst && minRand <= maxRand )
+				return true;
+
+			cout << "odwrocone wartosci min max" << std::endl;
+			return false;
+
+		}
+		else if(argc == 8) {
+			minRandElements = atoi(argv[1]);
+			maxRandElemenst = atoi(argv[2]);
+
+			maxRand = atoi(argv[3]);
+			minRand = atoi(argv[4]);
+
+			density = atoi(argv[5]);
+
+			*pathElement = argv[6];
+			*pathSubelements = argv[7];
 
 			if(minRandElements <= maxRandElemenst && minRand <= maxRand )
 				return true;

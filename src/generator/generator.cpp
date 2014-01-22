@@ -8,12 +8,12 @@
 #include "generator.h"
 
 
-void generate(char **path) {
+void generate(char **path, char **pathS) {
 
 
 	int *tableOfElements;
 	int _rand;
-	ofstream myfile;
+	ofstream myfile, myfileS;
 
 
 	int numberOfElements = rand() % maxRandElemenst + minRandElements;
@@ -32,16 +32,18 @@ void generate(char **path) {
 
 
 	myfile << std::endl;
+	myfile.close();
 
+	myfileS.open(*pathS);
 
 
 	for(int i = 0, _randCentralElement; i < numberOfSubelements; i++) {
 		_randCentralElement = rand() % numberOfElements;
-		_randCalyPodlancuch(_randCentralElement, numberOfElements, &tableOfElements, &myfile);
+		_randCalyPodlancuch(_randCentralElement, numberOfElements, &tableOfElements, &myfileS);
 
 	}
 
-	myfile.close();
+	myfileS.close();
 
 	delete tableOfElements;
 
