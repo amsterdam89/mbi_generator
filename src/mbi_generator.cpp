@@ -56,7 +56,7 @@ bool loadArguments(int argc, char *argv[], char **pathElement, char **pathSubele
 			density = 1000.0;
 
 			*pathElement = "plik_lancuch.txt";
-			*pathSubelements = "plik_sublancuch";
+			*pathSubelements = "plik_sublancuch.txt";
 
 			return true;
 
@@ -94,7 +94,7 @@ bool loadArguments(int argc, char *argv[], char **pathElement, char **pathSubele
 				density = 1000.0;
 
 				*pathElement = "plikt_gen.txt";
-				*pathSubelements = "plik_sublancuch";
+				*pathSubelements = "plik_sublancuch.txt";
 
 				return true;
 
@@ -112,7 +112,7 @@ bool loadArguments(int argc, char *argv[], char **pathElement, char **pathSubele
 			density = 1000.0;
 
 			*pathElement = "plikt_gen.txt";
-			*pathSubelements = "plik_sublancuch";
+			*pathSubelements = "plik_sublancuch.txt";
 
 			if(minRandElements <= maxRandElemenst)
 				return true;
@@ -131,7 +131,7 @@ bool loadArguments(int argc, char *argv[], char **pathElement, char **pathSubele
 			density = 1000.0;
 
 			*pathElement = "plikt_gen.txt";
-			*pathSubelements = "plik_sublancuch";
+			*pathSubelements = "plik_sublancuch.txt";
 
 			if(minRandElements <= maxRandElemenst)
 				return true;
@@ -150,7 +150,7 @@ bool loadArguments(int argc, char *argv[], char **pathElement, char **pathSubele
 			density = 1000.0;
 
 			*pathElement = "plikt_gen.txt";
-			*pathSubelements = "plik_sublancuch";
+			*pathSubelements = "plik_sublancuch.txt";
 
 			if(minRandElements <= maxRandElemenst && minRand <= maxRand )
 				return true;
@@ -170,7 +170,7 @@ bool loadArguments(int argc, char *argv[], char **pathElement, char **pathSubele
 			density = atoi(argv[5]);
 
 			*pathElement = "plikt_gen.txt";
-			*pathSubelements = "plik_sublancuch";
+			*pathSubelements = "plik_sublancuch.txt";
 
 			if(minRandElements <= maxRandElemenst && minRand <= maxRand )
 				return true;
@@ -190,7 +190,7 @@ bool loadArguments(int argc, char *argv[], char **pathElement, char **pathSubele
 			density = atoi(argv[5]);
 
 			*pathElement = argv[6];
-			*pathSubelements = "plik_sublancuch";
+			*pathSubelements = "plik_sublancuch.txt";
 
 			if(minRandElements <= maxRandElemenst && minRand <= maxRand )
 				return true;
