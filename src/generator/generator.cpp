@@ -2,7 +2,7 @@
  * generator.cpp
  *
  *  Created on: Jan 17, 2014
- *      Author: amsterdam
+ *      Author: lmetrak
  */
 
 #include "generator.h"
@@ -32,18 +32,18 @@ void generate(char **path, char **pathS) {
 
 
 	myfile << std::endl;
-	//myfile.close();
+	myfile.close();
 
-	//myfileS.open(*pathS);
+	myfileS.open(*pathS);
 
 
 	for(int i = 0, _randCentralElement; i < numberOfSubelements; i++) {
 		_randCentralElement = rand() % numberOfElements;
-		_randCalyPodlancuch(_randCentralElement, numberOfElements, &tableOfElements, &myfile);
+		_randCalyPodlancuch(_randCentralElement, numberOfElements, &tableOfElements, &myfileS);
 
 	}
 
-	myfile.close();
+	myfileS.close();
 
 	delete tableOfElements;
 

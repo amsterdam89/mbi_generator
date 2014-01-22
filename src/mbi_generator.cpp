@@ -79,7 +79,7 @@ bool loadArguments(int argc, char *argv[], char **pathElement, char **pathSubele
 				cout << "czwarty argument 	- maksymalna ilosc podslow" << std::endl;
 				cout << "piaty argument 	- zageszczenie podslow" << std::endl;
 				cout << "szosty argument  	- nazwa pliku zawierającego lancuch" << std::endl;
-				//cout << "siodmy argument  	- nazwa pliku zawierającego podlancuchy" << std::endl;
+				cout << "siodmy argument  	- nazwa pliku zawierającego podlancuchy" << std::endl;
 
 				return false;
 			}
@@ -191,6 +191,25 @@ bool loadArguments(int argc, char *argv[], char **pathElement, char **pathSubele
 
 			*pathElement = argv[6];
 			*pathSubelements = "plik_sublancuch.txt";
+
+			if(minRandElements <= maxRandElemenst && minRand <= maxRand )
+				return true;
+
+			cout << "odwrocone wartosci min max" << std::endl;
+			return false;
+
+		}
+		else if(argc == 8) {
+			minRandElements = atoi(argv[1]);
+			maxRandElemenst = atoi(argv[2]);
+
+			maxRand = atoi(argv[3]);
+			minRand = atoi(argv[4]);
+
+			density = atoi(argv[5]);
+
+			*pathElement = argv[6];
+			*pathSubelements = argv[7];
 
 			if(minRandElements <= maxRandElemenst && minRand <= maxRand )
 				return true;
