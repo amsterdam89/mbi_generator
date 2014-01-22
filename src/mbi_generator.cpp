@@ -47,11 +47,13 @@ bool loadArguments(int argc, char *argv[], char **pathElement, char **pathSubele
 
 	if(argc == 1 ) {
 
-			minRandElements = 10;
+			minRandElements = 50;
 			maxRandElemenst = minRandElements + 100;
 
-			minRand = 20;
+			minRand = 25;
 			maxRand = 100;
+
+			density = 1000.0;
 
 			*pathElement = "plik_lancuch.txt";
 			*pathSubelements = "plik_sublancuch";
