@@ -53,7 +53,7 @@ bool loadArguments(int argc, char *argv[], char **pathElement, char **pathSubele
 			minRand = 25;
 			maxRand = 100;
 
-			density = 1000.0;
+			density = 15.0;
 
 			*pathElement = "plik_lancuch.txt";
 			*pathSubelements = "plik_sublancuch.txt";
@@ -79,7 +79,7 @@ bool loadArguments(int argc, char *argv[], char **pathElement, char **pathSubele
 				cout << "czwarty argument 	- maksymalna ilosc podslow" << std::endl;
 				cout << "piaty argument 	- zageszczenie podslow" << std::endl;
 				cout << "szosty argument  	- nazwa pliku zawierającego lancuch" << std::endl;
-				cout << "siodmy argument  	- nazwa pliku zawierającego podlancuchy" << std::endl;
+				//cout << "siodmy argument  	- nazwa pliku zawierającego podlancuchy" << std::endl;
 
 				return false;
 			}
@@ -91,7 +91,7 @@ bool loadArguments(int argc, char *argv[], char **pathElement, char **pathSubele
 				minRand = 50;
 				maxRand = 100;
 
-				density = 1000.0;
+				density = 15;
 
 				*pathElement = "plikt_gen.txt";
 				*pathSubelements = "plik_sublancuch.txt";
@@ -109,7 +109,7 @@ bool loadArguments(int argc, char *argv[], char **pathElement, char **pathSubele
 			minRand = 50;
 			maxRand = 100;
 
-			density = 1000.0;
+			density = 15;
 
 			*pathElement = "plikt_gen.txt";
 			*pathSubelements = "plik_sublancuch.txt";
@@ -128,7 +128,7 @@ bool loadArguments(int argc, char *argv[], char **pathElement, char **pathSubele
 			minRand = atoi(argv[3]);
 			maxRand = minRand + 50;
 
-			density = 1000.0;
+			density = 15;
 
 			*pathElement = "plikt_gen.txt";
 			*pathSubelements = "plik_sublancuch.txt";
@@ -147,7 +147,7 @@ bool loadArguments(int argc, char *argv[], char **pathElement, char **pathSubele
 			minRand = atoi(argv[3]);
 			maxRand = atoi(argv[4]);
 
-			density = 1000.0;
+			density = 15;
 
 			*pathElement = "plikt_gen.txt";
 			*pathSubelements = "plik_sublancuch.txt";
@@ -199,26 +199,6 @@ bool loadArguments(int argc, char *argv[], char **pathElement, char **pathSubele
 			return false;
 
 		}
-		else if(argc == 8) {
-			minRandElements = atoi(argv[1]);
-			maxRandElemenst = atoi(argv[2]);
-
-			maxRand = atoi(argv[3]);
-			minRand = atoi(argv[4]);
-
-			density = atoi(argv[5]);
-
-			*pathElement = argv[6];
-			*pathSubelements = argv[7];
-
-			if(minRandElements <= maxRandElemenst && minRand <= maxRand )
-				return true;
-
-			cout << "odwrocone wartosci min max" << std::endl;
-			return false;
-
-		}
-
 	}
 	else {
 			cout << "blad, zle argumenty" << std::endl;

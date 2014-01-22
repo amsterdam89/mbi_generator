@@ -36,4 +36,6 @@ bool cointinueCutLinear(int x, double _rand);
 
 bool cointinueCut_x2(int x, double _rand);
 
+bool cointinueConst(int x, double _rand);
+
 #endif /* GENERATOR_H_ */

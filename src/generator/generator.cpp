@@ -32,18 +32,18 @@ void generate(char **path, char **pathS) {
 
 
 	myfile << std::endl;
-	myfile.close();
+	//myfile.close();
 
-	myfileS.open(*pathS);
+	//myfileS.open(*pathS);
 
 
 	for(int i = 0, _randCentralElement; i < numberOfSubelements; i++) {
 		_randCentralElement = rand() % numberOfElements;
-		_randCalyPodlancuch(_randCentralElement, numberOfElements, &tableOfElements, &myfileS);
+		_randCalyPodlancuch(_randCentralElement, numberOfElements, &tableOfElements, &myfile);
 
 	}
 
-	myfileS.close();
+	myfile.close();
 
 	delete tableOfElements;
 
@@ -78,12 +78,14 @@ void _randCalyPodlancuch(int _randCentralElement, int numberOfElements, int **ta
 	int goLeftOrRight;
 	int x = 1;
 
-	bool ( *cointinue ) ( int a, double b) = cointinueCutLinear; //cointinueCut_x2 ;
+//	bool ( *cointinue ) ( int a, double b) = cointinueCutLinear;
+//	bool ( *cointinue ) ( int a, double b) = cointinueCut_x2 ;
+	bool ( *cointinue ) ( int a, double b) = cointinueConst;
 
 
 	do {
 
-		_rand = (double) rand() / RAND_MAX;
+		_rand = (double) rand() / RAND_MAX; // przy stalej, nie przydaje sie
 
 		if( cointinue(x, _rand) ) {
 
@@ -158,6 +160,17 @@ bool cointinueCut_x2(int x, double _rand) {
 	double f = a*x*x + b*x + c;
 
 	if(f >= _rand)
+		return true;
+
+	return false;
+
+}
+
+bool cointinueConst(int x, double _rand) {
+
+	// f decydujaca o wycinaniu lancucha
+
+	if(density >= x)
 		return true;
 
 	return false;
