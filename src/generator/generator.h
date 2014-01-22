@@ -2,7 +2,7 @@
  * generator.h
  *
  *  Created on: Jan 17, 2014
- *      Author: amsterdam
+ *      Author: lmetrak
  */
 
 #ifndef GENERATOR_H_

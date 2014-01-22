@@ -164,8 +164,8 @@ bool loadArguments(int argc, char *argv[], char **pathElement, char **pathSubele
 			minRandElements = atoi(argv[1]);
 			maxRandElemenst = atoi(argv[2]);
 
-			maxRand = atoi(argv[3]);
-			minRand = atoi(argv[4]);
+			minRand = atoi(argv[3]);
+			maxRand = atoi(argv[4]);
 
 			density = atoi(argv[5]);
 
@@ -184,8 +184,10 @@ bool loadArguments(int argc, char *argv[], char **pathElement, char **pathSubele
 			minRandElements = atoi(argv[1]);
 			maxRandElemenst = atoi(argv[2]);
 
-			maxRand = atoi(argv[3]);
-			minRand = atoi(argv[4]);
+
+			minRand = atoi(argv[3]);
+			maxRand = atoi(argv[4]);
+
 
 			density = atoi(argv[5]);
 
@@ -203,8 +205,8 @@ bool loadArguments(int argc, char *argv[], char **pathElement, char **pathSubele
 			minRandElements = atoi(argv[1]);
 			maxRandElemenst = atoi(argv[2]);
 
-			maxRand = atoi(argv[3]);
-			minRand = atoi(argv[4]);
+			minRand = atoi(argv[3]);
+			maxRand = atoi(argv[4]);
 
 			density = atoi(argv[5]);
 
